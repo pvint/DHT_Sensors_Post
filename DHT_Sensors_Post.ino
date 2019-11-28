@@ -86,11 +86,23 @@ void loop()
   // Get each sensor value and send as HTTP POST to server
   float val = dhtSensor[0].getTemperature();
   String sensorName = "Temperature";
-  String sensorLocation = "Upstairs";
+  String sensorLocation = "Outside";
 
   post(sensorName, sensorLocation, val);
 
   val = dhtSensor[0].getHumidity();
+  sensorName = "Humidity";
+
+  post(sensorName, sensorLocation, val);
+  
+  sensorLocation = "Outside";
+  val = dhtSensor[1].getTemperature();
+  sensorName = "Temperature";
+
+  post(sensorName, sensorLocation, val);
+  
+
+  val = dhtSensor[1].getHumidity();
   sensorName = "Humidity";
 
   post(sensorName, sensorLocation, val);
